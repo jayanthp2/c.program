@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+// Function to generate Fibonacci sequence up to a specified number of terms
+void fibonacci(int n) {
+    long long int a = 0, b = 1, next;
+    
+    // Print the first two numbers of the Fibonacci series
+    printf("Fibonacci Series: ");
+    if (n >= 1) printf("%lld ", a);
+    if (n >= 2) printf("%lld ", b);
+    
+    // Generate the rest of the Fibonacci sequence
+    for (int i = 3; i <= n; i++) {
+        next = a + b;
+        printf("%lld ", next);
+        a = b;
+        b = next;
+    }
+    printf("\n");
+}
+
+int main() {
+    int terms;
+
+    // Ask the user how many terms of the Fibonacci sequence they want
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+
+    if (terms <= 0) {
+        printf("Please enter a positive integer.\n");
+    } else {
+        fibonacci(terms);
+    }
+
+    return 0;
+}
